@@ -16,7 +16,7 @@ namespace AddressBookSystem
         public AddressBookManager()
         {
             string jsonContent = File.ReadAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json");
-            if (jsonContent.Length > 0)
+            if (jsonContent.Length > 2)
             {
                 ContactList = JsonConvert.DeserializeObject<List<Person>>(jsonContent);
                 this.DisplayContactList();
@@ -43,7 +43,7 @@ namespace AddressBookSystem
                 Console.WriteLine(p.DisplayContact());
         }
 
-        public void EditContactList(string name)
+        public void EditContact(string name)
         {
             bool check = false;
 
@@ -74,6 +74,28 @@ namespace AddressBookSystem
 
             if (check)
                 Console.WriteLine("\nContact Edited Successfully.");
+            else
+                Console.WriteLine("\nContact with the entered name does not exist.");
+
+            string jsonContent = JsonConvert.SerializeObject(ContactList);
+            File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
+        }
+
+        public void DeleteContact(string name)
+        {
+            bool check = false;
+
+            for (int i = 0; i < ContactList.Count; i++)
+            {
+                if (ContactList[i].FirstName == name)
+                {
+                    check = true;
+                    ContactList.Remove(ContactList[i]);
+                }
+            }
+
+            if (check)
+                Console.WriteLine("\nContact Deleted Successfully.");
             else
                 Console.WriteLine("\nContact with the entered name does not exist.");
 

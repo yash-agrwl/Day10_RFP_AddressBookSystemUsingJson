@@ -18,10 +18,15 @@ namespace AddressBookSystem
                     person.InputContact();
                     manager.AddPerson(person);
                     break;
+                case "D":
+                    Console.Write("\nEnter Name of the person to delete: ");
+                    string name = Console.ReadLine();
+                    manager.DeleteContact(name);
+                    break;
                 case "E":
                     Console.Write("\nEnter Name of the person to edit: ");
-                    string name = Console.ReadLine();
-                    manager.EditContactList(name);
+                    name = Console.ReadLine();
+                    manager.EditContact(name);
                     break;
                 default :
                     Console.WriteLine("\nInvalid Input.");
@@ -33,7 +38,8 @@ namespace AddressBookSystem
         public static void UserMenu()
         {
             Console.WriteLine("Enter 'A' to add new contact.");
-            Console.WriteLine("Enter 'E' to edit existing contact.");
+            Console.WriteLine("Enter 'D' to delete an existing contact.");
+            Console.WriteLine("Enter 'E' to edit an existing contact.");
             Console.Write("Input: ");
         }
     }
