@@ -10,6 +10,7 @@ namespace AddressBookSystem
 
             AddressBookManager manager = new();
             Person person = new();
+
             UserMenu();
             switch (Console.ReadLine())
             {
@@ -32,7 +33,6 @@ namespace AddressBookSystem
                     Console.WriteLine("\nInvalid Input.");
                     break;
             }
-            
         }
 
         public static void UserMenu()
