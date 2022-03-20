@@ -20,7 +20,6 @@ namespace AddressBookSystem
 
         public void InputContact()
         {
-            Console.WriteLine("Enter Details to Add New Contact-");
             Console.Write("Enter First-Name: ");
             this.FirstName = Console.ReadLine();
             Console.Write("Enter Last-Name: ");

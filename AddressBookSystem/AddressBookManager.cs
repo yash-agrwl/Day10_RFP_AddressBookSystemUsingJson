@@ -42,5 +42,43 @@ namespace AddressBookSystem
             foreach (Person p in ContactList)
                 Console.WriteLine(p.DisplayContact());
         }
+
+        public void EditContactList(string name)
+        {
+            bool check = false;
+
+            for (int i = 0; i < ContactList.Count; i++)
+            {
+                if(ContactList[i].FirstName == name)
+                {
+                    check = true;
+                    Console.WriteLine("\nEnter new details-");
+                    Console.Write("Enter First-Name: ");
+                    ContactList[i].FirstName = Console.ReadLine();
+                    Console.Write("Enter Last-Name: ");
+                    ContactList[i].LastName = Console.ReadLine();
+                    Console.Write("Enter Address: ");
+                    ContactList[i].Address = Console.ReadLine();
+                    Console.Write("Enter City: ");
+                    ContactList[i].City = Console.ReadLine();
+                    Console.Write("Enter State: ");
+                    ContactList[i].State = Console.ReadLine();
+                    Console.Write("Enter Zip-Code: ");
+                    ContactList[i].ZipCode = int.Parse(Console.ReadLine());
+                    Console.Write("Enter ContactNumber: ");
+                    ContactList[i].PhoneNumber = long.Parse(Console.ReadLine());
+                    Console.Write("Enter Email-Id: ");
+                    ContactList[i].EmailId = Console.ReadLine();
+                }
+            }
+
+            if (check)
+                Console.WriteLine("\nContact Edited Successfully.");
+            else
+                Console.WriteLine("\nContact with the entered name does not exist.");
+
+            string jsonContent = JsonConvert.SerializeObject(ContactList);
+            File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
+        }
     }
 }
