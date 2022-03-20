@@ -8,17 +8,19 @@ namespace AddressBookSystem
 {
     internal class Person
     {
-        string FirstName;
-        string LastName;
-        string Address;
-        string City;
-        string State;
-        string ZipCode;
-        long PhoneNumber;
-        string EmailId;
+
+        public string FirstName;
+        public string LastName;
+        public string Address;
+        public string City;
+        public string State;
+        public int ZipCode;
+        public long PhoneNumber;
+        public string EmailId;
 
         public void InputContact()
         {
+            Console.WriteLine("Enter Details to Add New Contact-");
             Console.Write("Enter First-Name: ");
             this.FirstName = Console.ReadLine();
             Console.Write("Enter Last-Name: ");
@@ -30,7 +32,7 @@ namespace AddressBookSystem
             Console.Write("Enter State: ");
             this.State = Console.ReadLine();
             Console.Write("Enter Zip-Code: ");
-            this.ZipCode = Console.ReadLine();
+            this.ZipCode = int.Parse(Console.ReadLine());
             Console.Write("Enter ContactNumber: ");
             this.PhoneNumber = long.Parse(Console.ReadLine());
             Console.Write("Enter Email-Id: ");

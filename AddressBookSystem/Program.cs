@@ -8,9 +8,12 @@ namespace AddressBookSystem
         {
             Console.WriteLine("Welcome To Computation Of Address Book System Problem\n");
 
+            AddressBookManager manager = new();
+
             Person person = new();
             person.InputContact();
-            Console.WriteLine("\nThe Entered Contact Details are:\n" + person.DisplayContact());
+            
+            manager.AddPerson(person);
         }
     }
 }
