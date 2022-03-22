@@ -31,9 +31,24 @@ namespace AddressBookSystem
 
         public void AddPerson(Person p)
         {
-            ContactList.Add(p);
-            string jsonContent = JsonConvert.SerializeObject(ContactList);
-            File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
+            bool check = false;
+            for (int i = 0; i < ContactList.Count; i++)
+            {
+                if (ContactList[i].FirstName == p.FirstName)
+                {
+                    check = true;
+                    break;
+                }                         
+            }
+            if(check)
+                Console.WriteLine("\nContact with entered first name already exists.\n");
+            else
+            {
+                ContactList.Add(p);
+                string jsonContent = JsonConvert.SerializeObject(ContactList);
+                File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
+                Console.WriteLine("\nContact Added Successfully.\n");
+            }  
         }
 
         public void DisplayContactList()

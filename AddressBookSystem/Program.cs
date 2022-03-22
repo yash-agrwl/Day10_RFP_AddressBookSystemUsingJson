@@ -22,7 +22,6 @@ namespace AddressBookSystem
                         Console.WriteLine("\nEnter Details to Add New Contact-");
                         person.InputContact();
                         manager.AddPerson(person);
-                        Console.WriteLine("\nContact Added Successfully.\n");
                         break;
                     case "D":
                         Console.Write("\nEnter Name of the person to delete: ");
