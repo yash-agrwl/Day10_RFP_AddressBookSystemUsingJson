@@ -38,7 +38,7 @@ namespace AddressBookSystem
 
         public void DisplayContactList()
         {
-            Console.WriteLine("The Contact Details Available in Address Book are:\n");
+            Console.WriteLine("\nThe Contact Details Available in Address Book are:\n");
             foreach (Person p in ContactList)
                 Console.WriteLine(p.DisplayContact());
         }
@@ -73,9 +73,9 @@ namespace AddressBookSystem
             }
 
             if (check)
-                Console.WriteLine("\nContact Edited Successfully.");
+                Console.WriteLine("\nContact Edited Successfully.\n");
             else
-                Console.WriteLine("\nContact with the entered name does not exist.");
+                Console.WriteLine("\nContact with the entered name does not exist.\n");
 
             string jsonContent = JsonConvert.SerializeObject(ContactList);
             File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
@@ -95,9 +95,9 @@ namespace AddressBookSystem
             }
 
             if (check)
-                Console.WriteLine("\nContact Deleted Successfully.");
+                Console.WriteLine("\nContact Deleted Successfully.\n");
             else
-                Console.WriteLine("\nContact with the entered name does not exist.");
+                Console.WriteLine("\nContact with the entered name does not exist.\n");
 
             string jsonContent = JsonConvert.SerializeObject(ContactList);
             File.WriteAllText(@"C:\Users\AGARWAL-PC\source\repos\Day10_RFP_AddressBookSystem\AddressBookSystem\AddressBook.json", jsonContent);
